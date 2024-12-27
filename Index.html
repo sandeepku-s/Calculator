@@ -11,12 +11,12 @@
 		<div id="calculator_wrap">
 			<div id="header">
 				<div id="calculator_icon"></div>
-				<div id="heading">Calculator</div>
+				<div id="heading">MyCalculator</div>
 			</div>
 
-			<div id="calc_result"></div>
+			<div><input type="text" value="" id="calc_result" readonly ></div>
 
-			<div><input type="text" value="0" id="calculation"></div>
+			<div><input type="text" value="0" id="calculation" autocomplete="off"></div>
 
 			<div id="calc_button_wrap">
 				<buton class="calc_button" onclick="press('%')"> % </buton>
@@ -77,17 +77,17 @@
 				else if(value === '1/x')
 				{
 					currentInput = (1 / parseFloat(currentInput));
-					preCalc.innerHTML=`Result of ( 1/${1 / parseFloat(currentInput)} ) is`;
+					preCalc.value=`Result of ( 1/${1 / parseFloat(currentInput)} ) is`;
 				}
 				else if(value === 'x^2')
 				{
 					currentInput = Math.pow(parseFloat(currentInput), 2);
-					preCalc.innerHTML=`Result of ( ${Math.sqrt(parseFloat(currentInput))}<sup>2</sup> ) is`;
+					preCalc.value=`Result of ( ${Math.sqrt(parseFloat(currentInput))}<sup>2</sup> ) is`;
 				}
 				else if(value === '√')
 				{
 					currentInput = Math.sqrt(parseFloat(currentInput));
-					preCalc.innerHTML=`Result of ( &radic;${Math.pow(parseFloat(currentInput), 2)} ) is`;
+					preCalc.value=`Result of ( &radic;${Math.pow(parseFloat(currentInput), 2)} ) is`;
 				}
 				else
 				{
@@ -109,43 +109,43 @@
 				{
 					case '+':
 						result = prev + curr;
-						preCalc.innerHTML=`Result of ( ${prev} + ${curr} ) is`;
+						preCalc.value=`Result of ( ${prev} + ${curr} ) is`;
 						break;
 					case '-':
 						result = prev - curr;
-						preCalc.innerHTML=`Result of ( ${prev} - ${curr} ) is`;
+						preCalc.value=`Result of ( ${prev} - ${curr} ) is`;
 						break;
 					case '*':
 						result = prev * curr;
-						preCalc.innerHTML=`Result of ( ${prev} X ${curr} ) is`;
+						preCalc.value=`Result of ( ${prev} X ${curr} ) is`;
 						break;
 					case '/':
 						if(curr === 0)
 						{
 							swal('Error!!',"Invalid input.. Don't use 0 in denominator",'error');
-							preCalc.innerHTML=`ERROR`;
+							preCalc.value=`ERROR`;
 						}
 						else
 						{
 							result = prev / curr;
-							preCalc.innerHTML=`Result of ( ${prev} ÷ ${curr} ) is`;
+							preCalc.value=`Result of ( ${prev} ÷ ${curr} ) is`;
 						}
 						break;
 					case '%':
 					if(curr === 0)
 						{
 							swal('Error!!',"Invalid input.. Don't use 0 in denominator",'error');
-							preCalc.innerHTML=`ERROR`;
+							preCalc.value=`ERROR`;
 						}
 						else
 						{
 							result = prev % curr;
-							preCalc.innerHTML=`Result of ( ${prev} % ${curr} ) is`;
+							preCalc.value=`Result of ( ${prev} % ${curr} ) is`;
 						}
 						break;
 					default:
 						result = eval(manualCalc);
-						preCalc.innerHTML=`Result of ( ${manualCalc} ) is`;
+						preCalc.value=`Result of ( ${manualCalc} ) is`;
 						break;
 				}
 
@@ -160,7 +160,7 @@
 				currentInput = '0';
 				previousInput = '';
 				operator = '';
-				preCalc.innerHTML='';
+				preCalc.value='';
 				updateDisplay();
 			}
 
