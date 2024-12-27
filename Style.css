@@ -76,11 +76,11 @@ body{
     text-align: center;
     cursor: pointer;
     border: none;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
 }
 
 .calc_button_equal{background-color: #4caf50;}
 
-.calc_button:hover{background-color: #555;}
+.calc_button:hover{background-color: #555; box-shadow: 1px 1px 10px 2px #e9baba;}
 
-.calc_button_equal:hover{background-color: #45a049;}
+.calc_button_equal:hover{background-color: #45a049; font-weight: bold; font-size: 30px; box-shadow: 1px 1px 10px 2px #aedcaf;}
