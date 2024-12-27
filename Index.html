@@ -4,6 +4,7 @@
 		<title>Simple Calculator</title>
 		<link rel="shortcut icon" href="calculator_icon.png" type="image/x-icon">
 		<link rel="stylesheet" href="Style.css">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</head>
 	<body>
 		<!-- Calculator wrapper -->
@@ -15,7 +16,7 @@
 
 			<div id="calc_result"></div>
 
-			<div id="calculation">0</div>
+			<div><input type="text" value="0" id="calculation"></div>
 
 			<div id="calc_button_wrap">
 				<buton class="calc_button" onclick="press('%')"> % </buton>
@@ -41,7 +42,7 @@
 				<buton class="calc_button" onclick="press('+/-')"> +/- </buton>
 				<buton class="calc_button" onclick="press('0')"> 0 </buton>
 				<buton class="calc_button" onclick="press('.')"> . </buton>
-				<buton class="calc_button_equal" onclick="calculate()" > = </buton>
+				<buton class="calc_button_equal" id="calc_button_Equal" onclick="calculate('=')" > = </buton>
 			</div>
 		</div>
 
@@ -53,7 +54,7 @@
 
 			function updateDisplay()
 			{
-      			document.getElementById('calculation').innerHTML = currentInput;
+      			document.getElementById('calculation').value = currentInput;
 			}
 
 			function press(value)
@@ -97,11 +98,12 @@
 				updateDisplay();
 			}
 
-			function calculate()
+			function calculate(equal_to)
 			{
 				let result = 0;
 				const prev = parseFloat(previousInput);
 				const curr = parseFloat(currentInput);
+				let manualCalc = document.getElementById('calculation').value;
 
 				switch(operator)
 				{
@@ -118,12 +120,32 @@
 						preCalc.innerHTML=`Result of ( ${prev} X ${curr} ) is`;
 						break;
 					case '/':
-						result = curr === 0 ? 'Error' : prev / curr;
-						preCalc.innerHTML=`Result of ( ${prev} ÷ ${curr} ) is`;
+						if(curr === 0)
+						{
+							swal('Error!!',"Invalid input.. Don't use 0 in denominator",'error');
+							preCalc.innerHTML=`ERROR`;
+						}
+						else
+						{
+							result = prev / curr;
+							preCalc.innerHTML=`Result of ( ${prev} ÷ ${curr} ) is`;
+						}
 						break;
 					case '%':
-						result = prev % curr;
-						preCalc.innerHTML=`Result of ( ${prev} % ${curr} ) is`;
+					if(curr === 0)
+						{
+							swal('Error!!',"Invalid input.. Don't use 0 in denominator",'error');
+							preCalc.innerHTML=`ERROR`;
+						}
+						else
+						{
+							result = prev % curr;
+							preCalc.innerHTML=`Result of ( ${prev} % ${curr} ) is`;
+						}
+						break;
+					default:
+						result = eval(manualCalc);
+						preCalc.innerHTML=`Result of ( ${manualCalc} ) is`;
 						break;
 				}
 
