@@ -82,12 +82,12 @@
 				else if(value === 'x^2')
 				{
 					currentInput = Math.pow(parseFloat(currentInput), 2);
-					preCalc.value=`Result of ( ${Math.sqrt(parseFloat(currentInput))}<sup>2</sup> ) is`;
+					preCalc.value=`Result of ( ${Math.sqrt(parseFloat(currentInput))}^2 ) is`;
 				}
 				else if(value === '√')
 				{
 					currentInput = Math.sqrt(parseFloat(currentInput));
-					preCalc.value=`Result of ( &radic;${Math.pow(parseFloat(currentInput), 2)} ) is`;
+					preCalc.value=`Result of ( √${Math.pow(parseFloat(currentInput), 2)} ) is`;
 				}
 				else
 				{
