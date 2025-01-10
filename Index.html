@@ -4,177 +4,52 @@
 		<title>Simple Calculator</title>
 		<link rel="shortcut icon" href="calculator_icon.png" type="image/x-icon">
 		<link rel="stylesheet" href="Style.css">
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</head>
 	<body>
 		<!-- Calculator wrapper -->
 		<div id="calculator_wrap">
-			<div id="header">
-				<div id="calculator_icon"></div>
-				<div id="heading">MyCalculator</div>
+			<div id="col1">
+				<div id="header">
+					<div id="calculator_icon"></div>
+					<div id="heading">MyCalculator</div>
+				</div>
+	
+				<div id="history"><input type="text" value="" id="calc_result" readonly ><button class="fal fa-history history_btn" onclick="show_hide()"></button></div>
+	
+				<div><input type="text" value="0" id="calculation" autocomplete="off"></div>
+	
+				<div id="calc_button_wrap">
+					<buton class="calc_button" onclick="press('%')"> % </buton>
+					<buton class="calc_button" onclick="clearEntry()"> CE </buton>
+					<buton class="calc_button" onclick="clearAll()"> C </buton>
+					<buton class="calc_button" onclick="backspace()"> ← </buton>
+					<buton class="calc_button" onclick="press('1/x'); createDivEle();"> 1/x </buton>
+					<buton class="calc_button" onclick="press('x^2'); createDivEle();"> x<sup>2</sup> </buton>
+					<buton class="calc_button" onclick="press('√'); createDivEle();"> &radic;x </buton>
+					<buton class="calc_button" onclick="press('/')"> ÷ </buton>
+					<buton class="number_button" onclick="press('7')"> 7 </buton>
+					<buton class="number_button" onclick="press('8')"> 8 </buton>
+					<buton class="number_button" onclick="press('9')"> 9 </buton>
+					<buton class="calc_button" onclick="press('*')"> X </buton>
+					<buton class="number_button" onclick="press('4')"> 4 </buton>
+					<buton class="number_button" onclick="press('5')"> 5 </buton>
+					<buton class="number_button" onclick="press('6')"> 6 </buton>
+					<buton class="calc_button" onclick="press('-')"> - </buton>
+					<buton class="number_button" onclick="press('1')"> 1 </buton>
+					<buton class="number_button" onclick="press('2')"> 2 </buton>
+					<buton class="number_button" onclick="press('3')"> 3 </buton>
+					<buton class="calc_button" onclick="press('+')"> + </buton>
+					<buton class="calc_button" onclick="press('+/-')"> +/- </buton>
+					<buton class="number_button" onclick="press('0')"> 0 </buton>
+					<buton class="calc_button" onclick="press('.')"> . </buton>
+					<buton class="calc_button_equal" id="calc_button_Equal" onclick="calculate('='); createDivEle();" > = </buton>
+				</div>
 			</div>
-
-			<div><input type="text" value="" id="calc_result" readonly ></div>
-
-			<div><input type="text" value="0" id="calculation" autocomplete="off"></div>
-
-			<div id="calc_button_wrap">
-				<buton class="calc_button" onclick="press('%')"> % </buton>
-				<buton class="calc_button" onclick="clearEntry()"> CE </buton>
-				<buton class="calc_button" onclick="clearAll()"> C </buton>
-				<buton class="calc_button" onclick="backspace()"> ← </buton>
-				<buton class="calc_button" onclick="press('1/x')"> 1/x </buton>
-				<buton class="calc_button" onclick="press('x^2')"> x<sup>2</sup> </buton>
-				<buton class="calc_button" onclick="press('√')"> &radic;x </buton>
-				<buton class="calc_button" onclick="press('/')"> ÷ </buton>
-				<buton class="calc_button" onclick="press('7')"> 7 </buton>
-				<buton class="calc_button" onclick="press('8')"> 8 </buton>
-				<buton class="calc_button" onclick="press('9')"> 9 </buton>
-				<buton class="calc_button" onclick="press('*')"> X </buton>
-				<buton class="calc_button" onclick="press('4')"> 4 </buton>
-				<buton class="calc_button" onclick="press('5')"> 5 </buton>
-				<buton class="calc_button" onclick="press('6')"> 6 </buton>
-				<buton class="calc_button" onclick="press('-')"> - </buton>
-				<buton class="calc_button" onclick="press('1')"> 1 </buton>
-				<buton class="calc_button" onclick="press('2')"> 2 </buton>
-				<buton class="calc_button" onclick="press('3')"> 3 </buton>
-				<buton class="calc_button" onclick="press('+')"> + </buton>
-				<buton class="calc_button" onclick="press('+/-')"> +/- </buton>
-				<buton class="calc_button" onclick="press('0')"> 0 </buton>
-				<buton class="calc_button" onclick="press('.')"> . </buton>
-				<buton class="calc_button_equal" id="calc_button_Equal" onclick="calculate('=')" > = </buton>
-			</div>
+			<div id="col2"></div>
 		</div>
 
-		<script>
-			let currentInput = '0';
-			let previousInput = '';
-			let operator = '';
-			let preCalc=document.getElementById('calc_result');
-
-			function updateDisplay()
-			{
-      			document.getElementById('calculation').value = currentInput;
-			}
-
-			function press(value)
-			{
-				if(!isNaN(value) || value === '.')
-				{
-					if (currentInput === '0')
-					{
-						currentInput = value;
-					} 
-					else
-					{
-						currentInput += value;
-					}
-				}
-				else if(value === '+/-')
-				{
-					currentInput = (parseFloat(currentInput) * -1);
-				}
-				else if(value === '1/x')
-				{
-					currentInput = (1 / parseFloat(currentInput));
-					preCalc.value=`Result of ( 1/${1 / parseFloat(currentInput)} ) is`;
-				}
-				else if(value === 'x^2')
-				{
-					currentInput = Math.pow(parseFloat(currentInput), 2);
-					preCalc.value=`Result of ( ${Math.sqrt(parseFloat(currentInput))}^2 ) is`;
-				}
-				else if(value === '√')
-				{
-					currentInput = Math.sqrt(parseFloat(currentInput));
-					preCalc.value=`Result of ( √${Math.pow(parseFloat(currentInput), 2)} ) is`;
-				}
-				else
-				{
-					operator = value;
-					previousInput = currentInput;
-					currentInput = '0';
-				}
-				updateDisplay();
-			}
-
-			function calculate(equal_to)
-			{
-				let result = 0;
-				const prev = parseFloat(previousInput);
-				const curr = parseFloat(currentInput);
-				let manualCalc = document.getElementById('calculation').value;
-
-				switch(operator)
-				{
-					case '+':
-						result = prev + curr;
-						preCalc.value=`Result of ( ${prev} + ${curr} ) is`;
-						break;
-					case '-':
-						result = prev - curr;
-						preCalc.value=`Result of ( ${prev} - ${curr} ) is`;
-						break;
-					case '*':
-						result = prev * curr;
-						preCalc.value=`Result of ( ${prev} X ${curr} ) is`;
-						break;
-					case '/':
-						if(curr === 0)
-						{
-							swal('Error!!',"Invalid input.. Don't use 0 in denominator",'error');
-							preCalc.value=`ERROR`;
-						}
-						else
-						{
-							result = prev / curr;
-							preCalc.value=`Result of ( ${prev} ÷ ${curr} ) is`;
-						}
-						break;
-					case '%':
-					if(curr === 0)
-						{
-							swal('Error!!',"Invalid input.. Don't use 0 in denominator",'error');
-							preCalc.value=`ERROR`;
-						}
-						else
-						{
-							result = prev % curr;
-							preCalc.value=`Result of ( ${prev} % ${curr} ) is`;
-						}
-						break;
-					default:
-						result = eval(manualCalc);
-						preCalc.value=`Result of ( ${manualCalc} ) is`;
-						break;
-				}
-
-				currentInput = result;
-				operator = '';
-				previousInput = '';
-				updateDisplay();
-			}
-
-			function clearAll()
-			{
-				currentInput = '0';
-				previousInput = '';
-				operator = '';
-				preCalc.value='';
-				updateDisplay();
-			}
-
-			function clearEntry()
-			{
-				currentInput = '0';
-				updateDisplay();
-			}
-
-			function backspace()
-			{
-				currentInput = currentInput.slice(0, -1) || '0';
-				updateDisplay();
-			}
-		</script>
+		<script src="JavaScript.js"></script>
 	</body>
 </html>
