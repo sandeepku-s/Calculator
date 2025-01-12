@@ -82,7 +82,7 @@ project-folder/
 ├── Style.css       # Stylesheet for the calculator.
 ├── JavaScript.js   # JavaScript file for logic and interactivity.
 ├── calculator_icon.png # Icon for the calculator header.
-└── Screenshot.png  # Screenshot of the calculator (add this to your repo).
+└── My Display.png  # Screenshot of the calculator (add this to your repo).
 ```
 
 ---
