@@ -5,7 +5,7 @@ A responsive and feature-rich calculator built using **HTML**, **CSS**, and **Ja
 ---
 
 ## 📸 Preview
-![Calculator Screenshot](https://github.com/sandeepku-s/Calculator/blob/master/My%20Display.png)
+![Calculator Screenshot](https://github.com/sandeepku-s/Calculator/blob/master/My_display.png)
 
 ---
 
