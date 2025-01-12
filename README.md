@@ -41,13 +41,13 @@ A responsive and feature-rich calculator built using **HTML**, **CSS**, and **Ja
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/sandeepu-s/simple-calculator.git
+   git clone https://github.com/sandeepku-s/Calculator.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd simple-calculator
+   cd Calculator
    ```
-3. Open `index.html` in your web browser to use the calculator.
+3. Open `Index.html` in your web browser to use the calculator.
 
 ---
 
@@ -82,7 +82,7 @@ project-folder/
 ├── Style.css       # Stylesheet for the calculator.
 ├── JavaScript.js   # JavaScript file for logic and interactivity.
 ├── calculator_icon.png # Icon for the calculator header.
-└── My Display.png  # Screenshot of the calculator (add this to your repo).
+└── My_display.png  # Screenshot of the calculator (add this to your repo).
 ```
 
 ---
