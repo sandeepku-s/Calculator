@@ -47,7 +47,7 @@ A responsive and feature-rich calculator built using **HTML**, **CSS**, and **Ja
    ```bash
    cd Calculator
    ```
-3. Open `Index.html` in your web browser to use the calculator.
+3. Open `index.html` in your web browser to use the calculator.
 
 ---
 
@@ -78,22 +78,22 @@ A responsive and feature-rich calculator built using **HTML**, **CSS**, and **Ja
 
 ```
 project-folder/
-├── index.html      # Main HTML file.
-├── Style.css       # Stylesheet for the calculator.
-├── JavaScript.js   # JavaScript file for logic and interactivity.
-├── calculator_icon.png # Icon for the calculator header.
-└── My_display.png  # Screenshot of the calculator (add this to your repo).
+├── index.html            # Main HTML file.
+├── Style.css             # Stylesheet for the calculator.
+├── JavaScript.js         # JavaScript file for logic and interactivity.
+├── calculator_icon.png   # Icon for the calculator header.
+└── My_display.png        # Screenshot of the calculator (add this to your repo).
 ```
 
 ---
 
 ## 🚀 Deployment
 
-This project can be deployed easily using platforms like [Netlify](https://www.netlify.com/) or [GitHub Pages](https://pages.github.com/). To preview the live version, visit:
+This project can be deployed easily using platforms like [GitHub Pages](https://pages.github.com/). To preview the live version, visit:
 
 ---
 
 ## 🌎 Live Demo
-Check out the live version here: [MyCalculator](https://sandycalculator.netlify.app)
+Check out the live version here: [MyCalculator](https://sandeepku-s.github.io/Simple-Calculator1/)
 
 ---
