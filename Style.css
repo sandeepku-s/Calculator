@@ -1,0 +1,134 @@
+body{
+    color: #f5f1f1; 
+    font-family: Arial, sans-serif;
+    background-color: #f5f0f0;
+}
+
+#calculator_wrap{
+    width: 700px;
+	margin: 0 auto; 
+	padding: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+#col1{
+    width: 350px;  
+	background-color: #333;
+    border-radius: 10px;
+    float: left;
+}
+
+#col2{
+    float: right;
+    position: relative;
+    width: 325px;
+    height: 450px;
+    border-radius: 10px;
+    color: #f5f1f1;
+    padding: 10px;
+    overflow-y: scroll;
+    flex-direction: column-reverse;
+    background-color: #555;
+    display: none;
+}
+
+#col2::-webkit-scrollbar{
+    width: 5px;
+    background-color: #666;
+    border-radius: 10px;
+}
+
+#col2::-webkit-scrollbar-thumb{
+    background-color: #999;
+    border-radius: 10px;
+}
+
+#header{
+    width: 350px; 
+    height: 40px;
+}
+
+#calculator_icon{
+    width: 20px; 
+    height: 20px;
+    background-image: url(calculator_icon.png);
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    float: left;
+}
+
+#heading{
+    width: 310px; 
+    height: 20px; 
+    margin-left: 10px; 
+    float: left; 
+    font-size: 20px;
+}
+
+#calc_result{
+    width: 300px; 
+    height: 20px;
+    background-color: #333;
+    margin-top: 10px; 
+    font-size: 15px; 
+    padding: 5px 10px; 
+    text-align: right;
+    color: #bfbfcd;
+    border: 0px;
+    outline: 0px;
+    cursor: default;
+}
+
+.history_btn{
+    background-color: #333;
+    border: 0px;
+    color: #fff;
+    padding: 2px 2px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.history_btn:hover{
+    background-color: #444;
+    border-bottom: 1px solid blue;
+}
+
+#calculation{
+    width: 330px; 
+    height: 60px; 
+    background-color: #333; 
+    color: #fff;
+    margin: 0px 0px 10px 0px; 
+    font-size: 60px; 
+    padding: 5px 10px; 
+    text-align: right;
+    border: 0px;
+    outline: 0px;
+    overflow: hidden;
+}
+
+#calc_button_wrap{margin: 0 auto;}
+
+.calc_button,.calc_button_equal, .number_button{ 
+    width: 69px; 
+    height: 30px; 
+    font-size: 25px; 
+    padding: 10px 8px; 
+    border-radius: 7px;
+    float: left; 
+    margin: 1px; 
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.calc_button{background-color: #444;}
+.number_button{background-color: #555;}
+.calc_button_equal{background-color: #4caf50;}
+
+.calc_button:hover{background-color: #555; box-shadow: 1px 1px 10px 2px #f3dcdc;}
+.number_button:hover{background-color: #666; box-shadow: 1px 1px 10px 2px #c2bdbd;}
+.calc_button_equal:hover{background-color: #45a049; font-weight: bold; font-size: 30px; box-shadow: 1px 1px 10px 2px #aedcaf;}
