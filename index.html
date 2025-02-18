@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Calculator</title>
+		<link rel="shortcut icon" href="calculator_icon.png" type="image/x-icon">
+		<link rel="stylesheet" href="Style.css">
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
+	<body>
+		<!-- Calculator wrapper -->
+		<div id="calculator_wrap">
+			<div id="col1">
+				<div id="header">
+					<div id="calculator_icon"></div>
+					<div id="heading">MyCalculator</div>
+				</div>
+	
+				<div id="history"><input type="text" value="" id="calc_result" readonly ><button class="fal fa-history history_btn" onclick="show_hide()"></button></div>
+	
+				<div><input type="text" value="0" id="calculation" autocomplete="off"></div>
+	
+				<div id="calc_button_wrap">
+					<buton class="calc_button" onclick="press('%')"> % </buton>
+					<buton class="calc_button" onclick="clearEntry()"> CE </buton>
+					<buton class="calc_button" onclick="clearAll()"> C </buton>
+					<buton class="calc_button" onclick="backspace()"> ← </buton>
+					<buton class="calc_button" onclick="press('1/x'); createDivEle();"> 1/x </buton>
+					<buton class="calc_button" onclick="press('x^2'); createDivEle();"> x<sup>2</sup> </buton>
+					<buton class="calc_button" onclick="press('√'); createDivEle();"> &radic;x </buton>
+					<buton class="calc_button" onclick="press('/')"> ÷ </buton>
+					<buton class="number_button" onclick="press('7')"> 7 </buton>
+					<buton class="number_button" onclick="press('8')"> 8 </buton>
+					<buton class="number_button" onclick="press('9')"> 9 </buton>
+					<buton class="calc_button" onclick="press('*')"> X </buton>
+					<buton class="number_button" onclick="press('4')"> 4 </buton>
+					<buton class="number_button" onclick="press('5')"> 5 </buton>
+					<buton class="number_button" onclick="press('6')"> 6 </buton>
+					<buton class="calc_button" onclick="press('-')"> - </buton>
+					<buton class="number_button" onclick="press('1')"> 1 </buton>
+					<buton class="number_button" onclick="press('2')"> 2 </buton>
+					<buton class="number_button" onclick="press('3')"> 3 </buton>
+					<buton class="calc_button" onclick="press('+')"> + </buton>
+					<buton class="calc_button" onclick="press('+/-')"> +/- </buton>
+					<buton class="number_button" onclick="press('0')"> 0 </buton>
+					<buton class="calc_button" onclick="press('.')"> . </buton>
+					<buton class="calc_button_equal" id="calc_button_Equal" onclick="calculate('='); createDivEle();" > = </buton>
+				</div>
+			</div>
+			<div id="col2"></div>
+		</div>
+
+		<script src="JavaScript.js"></script>
+	</body>
+</html>
